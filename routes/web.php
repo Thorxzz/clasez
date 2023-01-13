@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PeopleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware('admin');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')->middleware('admin');
+
+Route::get('/people', [PeopleController::class, 'index'])->name('people.index')->middleware('people');
+Route::get('/people/feed', [PeopleController::class, 'feed'])->name('people.feed')->middleware('people');

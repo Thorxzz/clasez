@@ -22,25 +22,18 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+ 
+
+        Photo::create([
+            'user_id'=>$request->user_id,
+            'name'=>$request->file('image')->getClientOriginalName(),
+        ]);
+
+        if ($request->hasFile('image')) {
+            $request->file('image')->move('images/', $request->file('image')->getClientOriginalName());
+        };
     
-           ]);
-    
-           $name = $request->file('image')->getClientOriginalName();
-    
-           $path = $request->file('image')->store('public/images');
-    
-    
-           $save = new Photo;
-    
-           $save->name = $name;
-           $save->path = $path;
-           $save->user_id = $request->user_id;
-    
-           $save->save();
-    
-           return redirect()->route('admin.index')->with('status', 'Image Has been uploaded');
+        return redirect()->route('admin.index')->with('status', 'Image Has been uploaded');
    
     }
 
