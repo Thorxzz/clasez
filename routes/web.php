@@ -28,3 +28,7 @@ Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.stor
 
 Route::get('/people', [PeopleController::class, 'index'])->name('people.index')->middleware('people');
 Route::get('/people/feed', [PeopleController::class, 'feed'])->name('people.feed')->middleware('people');
+Route::get('/people/feed/create', [PeopleController::class, 'create'])->name('people.feed.create')->middleware('people');
+Route::post('/people/feed/store', [PeopleController::class, 'store'])->name('people.feed.store')->middleware('people');
+Route::get('/people/message', [PeopleController::class, 'message'])->name('people.message')->middleware('people');
+Route::get('/people/profile', [PeopleController::class, 'profile'])->name('people.profile')->middleware('people');
