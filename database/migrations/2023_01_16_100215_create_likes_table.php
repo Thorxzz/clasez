@@ -18,7 +18,6 @@ class CreateLikesTable extends Migration
             $table->integer('photo_id');
             $table->integer('user_id');
             $table->integer('status');
-            $table->timestamps();
         });
     }
 

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'bod', 'role_id'
+        'name', 'email', 'password', 'bod', 'role_id', 'profile', 'bio'
     ];
 
     /**
@@ -37,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function user($user_id)
+    {
+        return User::where('id', $user_id)->first();
+    }
 }

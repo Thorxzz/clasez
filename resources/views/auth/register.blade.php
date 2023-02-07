@@ -149,6 +149,7 @@
                         @enderror
                         <label class="form-label" for="signup-email">Email</label>
                       </div>
+
                       <div class="form-floating mb-4">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -159,10 +160,13 @@
                         @enderror
                         <label class="form-label" for="signup-password">Password</label>
                       </div>
+
                       <div class="form-floating mb-4">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         <label class="form-label" for="signup-password-confirm">Confirm Password</label>
                       </div>
+
+                      
                       <div class="row">
                         <div class="col-sm-6 d-sm-flex align-items-center push">
                           <div class="form-check">

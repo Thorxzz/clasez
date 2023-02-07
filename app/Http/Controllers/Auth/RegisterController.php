@@ -39,7 +39,8 @@ class RegisterController extends Controller
             return $this->redirectTo;
         }
         else if (Auth::user()->role_id==2) {
-            $this->redirectTo = '/people';
+            $id = Auth::user()->id;
+            $this->redirectTo = '/people/profile/'.$id;
             return $this->redirectTo;
         }
         else{
@@ -89,7 +90,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'bod' => $data['bod'],
-            'role_id' => 2
+            'role_id' => 2,
+            'profile' => 'avatar16.jpg'
         ]);
     }
 }

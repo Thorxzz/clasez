@@ -36,7 +36,7 @@ class LoginController extends Controller
             return $this->redirectTo;
         }
         else if (Auth::user()->role_id==2) {
-            $this->redirectTo = '/people';
+            $this->redirectTo = '/people/feed';
             return $this->redirectTo;
         }
         else{
